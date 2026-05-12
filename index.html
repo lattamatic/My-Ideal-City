@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Ideal City</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #c4b5fd;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 2.5rem 3.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-width: 260px;
+      border: 2px solid transparent;
+    }
+
+    .btn-icon {
+      font-size: 3rem;
+    }
+
+    .btn-city {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(124, 58, 237, 0.45);
+    }
+
+    .btn-city:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.65);
+    }
+
+    .btn-train {
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(14, 165, 233, 0.45);
+    }
+
+    .btn-train:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(14, 165, 233, 0.65);
+    }
+
+    .footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #6d6d8a;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>My Ideal City</h1>
+    <p>Explore Île-de-France communes ranked by quality of life, or dive into train station accessibility scores.</p>
+
+    <div class="buttons">
+      <a href="dashboard.html" class="btn btn-city">
+        <span class="btn-icon">🏙️</span>
+        FIND CITIES
+      </a>
+      <a href="train station wise score.html" class="btn btn-train">
+        <span class="btn-icon">🚆</span>
+        FIND TRAIN
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">Ville Idéale &mdash; Île-de-France Explorer</div>
+</body>
+</html>
