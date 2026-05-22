@@ -172,7 +172,7 @@ var STATIONS  = {"RER A": [{"station": "Cergy-le-Haut", "city": {"nom": "Cergy",
 var CRITERIA  = ["Environnement", "Transports", "S\u00e9curit\u00e9", "Sant\u00e9", "Sports et loisirs", "Culture", "Enseignement", "Commerces", "Qualit\u00e9 de vie"];
 var LC        = {"RER A": {"color": "#E3051B", "short": "A", "type": "RER", "bg": "#fff0f0"}, "RER B": {"color": "#4F9FCB", "short": "B", "type": "RER", "bg": "#eef6fb"}, "RER C": {"color": "#c8a800", "short": "C", "type": "RER", "bg": "#fdfbe6"}, "RER D": {"color": "#6EAD3A", "short": "D", "type": "RER", "bg": "#edf7e4"}, "RER E": {"color": "#B76FAF", "short": "E", "type": "RER", "bg": "#f6eef6"}, "TRAIN H": {"color": "#6E4A99", "short": "H", "type": "Transilien", "bg": "#f0ecf7"}, "TRAIN J": {"color": "#C8A020", "short": "J", "type": "Transilien", "bg": "#fdf8e4"}, "TRAIN K": {"color": "#7F4F00", "short": "K", "type": "Transilien", "bg": "#f5ede3"}, "TRAIN L": {"color": "#7B4C8E", "short": "L", "type": "Transilien", "bg": "#f2ecf6"}, "TRAIN N": {"color": "#00857E", "short": "N", "type": "Transilien", "bg": "#e3f5f4"}, "TRAIN P": {"color": "#E05206", "short": "P", "type": "Transilien", "bg": "#fdeee8"}, "TRAIN R": {"color": "#E4B600", "short": "R", "type": "Transilien", "bg": "#fdf8e3"}, "TRAIN U": {"color": "#CC007A", "short": "U", "type": "Transilien", "bg": "#fce8f3"}};
 var curLine   = null;
-var curCrit   = 'Note globale';
+var selectedCrits = ['Note globale'];  // multi-select array
 var curSort   = 'line';
 
 function scoreColor(v){
