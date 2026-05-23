@@ -49,3 +49,9 @@ The train station HTML is self-contained and does not need to be regenerated unl
 - Quality-of-life scores: [ville-ideale.fr](https://www.ville-ideale.fr)
 - Commune boundaries: [geo.api.gouv.fr](https://geo.api.gouv.fr)
 - Live train lines: [IDFM Open Data API](https://data.iledefrance-mobilites.fr)
+
+## Legal & Attribution
+
+Quality-of-life scores are sourced from [www.ville-ideale.fr](https://www.ville-ideale.fr) and reproduced in accordance with their terms of use (source attribution + hyperlink provided). This project is a **non-commercial educational prototype** — the data is not resold or passed off as original. Only 71 cities have real scraped data; the remaining ~1,195 communes use synthetic scores generated for prototyping purposes only.
+
+All dashboards display the attribution: *"Source : www.ville-ideale.fr"* with a direct hyperlink as required.
