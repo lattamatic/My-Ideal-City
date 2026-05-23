@@ -195,11 +195,12 @@ function getScore(city){
   return vals.reduce(function(a,b){return a+b;},0)/vals.length;
 }
 
-function sel(el){
+function sel(el, source){
   document.querySelectorAll('.lpill').forEach(function(p){p.classList.remove('active');});
   el.classList.add('active');
   curLine = el.dataset.line;
   document.getElementById('crit-bar').style.display='flex';
+  gtag('event','train_line_selected',{line_name:curLine,source:source||'direct'});
   render();
 }
 
@@ -220,6 +221,12 @@ function selC(el){
   document.querySelectorAll('.cbtn').forEach(function(b){
     b.classList.toggle('active', selectedCrits.indexOf(b.dataset.c)!==-1);
   });
+  var isDefault = (selectedCrits.length===1 && (selectedCrits[0]==='Note globale'||selectedCrits[0]==='all'));
+  if(c==='Note globale'||c==='all'){
+    gtag('event','train_criteria_reset');
+  } else {
+    gtag('event','train_criteria_selected',{criterion_name:c,selection_count:selectedCrits.length,is_default:isDefault});
+  }
   render();
 }
 
@@ -291,7 +298,7 @@ function render(){
     }
 
     var footHtml = city ?
-      '<div class="card-foot"><a href="'+city.url+'" target="_blank">🔗 ville-ideale.fr</a><span class="src">'+(city.source==='synthetic'?'⚠️ synthétique':'✅ réel')+'</span></div>' : '';
+      '<div class="card-foot"><a href="'+city.url+'" target="_blank" onclick="gtag(\'event\',\'station_city_link_clicked\',{station_name:\''+s.station.replace(/'/g,"\\'")+'\',city_name:\''+city.nom.replace(/'/g,"\\'")+'\',line_name:\''+curLine+'\'})">🔗 ville-ideale.fr</a><span class="src">'+(city.source==='synthetic'?'⚠️ synthétique':'✅ réel')+'</span></div>' : '';
 
     html += '<div class="card">'+topHtml+bodyHtml+footHtml+'</div>';
   });
@@ -301,7 +308,7 @@ function render(){
   document.getElementById('sort-sel').value = curSort;
 }
 
-function chSort(v){ curSort=v; render(); }
+function chSort(v){ curSort=v; gtag('event','train_sort_changed',{sort_value:v,line_name:curLine}); render(); }
 
 // ── URL param: pre-select line (e.g. ?line=RER+A) ─────────────────────────────
 (function(){
@@ -310,7 +317,7 @@ function chSort(v){ curSort=v; render(); }
     var line = params.get('line');
     if(line){
       var pill = document.querySelector('[data-line="'+line+'"]');
-      if(pill){ pill.click(); }
+      if(pill){ sel(pill, 'url_param'); }
     }
   } catch(e){}
 })();
